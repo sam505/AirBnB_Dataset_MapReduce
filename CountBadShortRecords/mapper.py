@@ -20,8 +20,8 @@ def main():
             status = False
         else:
             # print values to stdout
-            print(f"{line}\t{ideal_len}")
-            file.write(f"{line}\t{ideal_len}\n")
+            print(f"0{line}\t{ideal_len}")
+            file.write(f"0{line}\t{ideal_len}\n")
     file.close()
 
 

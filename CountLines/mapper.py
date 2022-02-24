@@ -2,8 +2,6 @@
 
 import sys
 
-idx = []
-
 
 def main():
     """
@@ -11,11 +9,19 @@ def main():
     :return:
     """
     file = open("response.txt", "w")
+    status = True
     for line in sys.stdin:
         # remove leading and trailing whitespace
         line = line.strip()
-        print(f"{line}\t1")
-        file.write(f"{line}\n")
+
+        if status:
+            values = line.split(",")
+            ideal_len = len(values)
+            status = False
+        else:
+            # print values to stdout
+            print(f"0{line}\t{ideal_len}")
+            file.write(f"0{line}\t{ideal_len}\n")
     file.close()
 
 
