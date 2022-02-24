@@ -4,6 +4,12 @@ bin/hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3
 -input /home/maina/PycharmProjects/AirBnB \Dataset \MapReduce/data/* \
 -output /home/maina/PycharmProjects/AirBnB \Dataset \MapReduce/task1/output
 
+hadoop jar /home/maina/Downloads/jar_files/hadoop-streaming-3.3.1.jar \
+-input /word_count_in_python/word_count_data.txt \
+-output /word_count_in_python/output \
+-mapper /home/dikshant/Documents/mapper.py \
+-reducer /home/dikshant/Documents/reducer.py
+
 /home/hdoop/hadoop-3.3.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.1.jar
 
 $HADOOP_HOME/bin/hadoop jar share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
@@ -17,3 +23,14 @@ bin/hadoop jar share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
 -file /home/hdoop/reducer.py  -reducer /home/hdoop/mapper.py \
 -input /data/AB_NYC_2019.csv \
 -output /task1/output
+
+
+cat data/AB_NYC_2019.csv | task1/mapper.py | task1/reducer.py
+
+cat data/AB_NYC_2019.csv | CountLines/mapper.py | CountLines/reducer.py
+
+cat data/AB_NYC_2019.csv | CountBadShortRecords/mapper.py | CountBadShortRecords/reducer.py
+
+cat data/AB_NYC_2019.csv | CountBadLongRecords/mapper.py | CountBadLongRecords/reducer.py
+
+cat data/AB_NYC_2019.csv | CountGoodRecords/mapper.py | CountGoodRecords/reducer.py

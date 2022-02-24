@@ -8,7 +8,6 @@ def main():
     gets all lines from stdin
     :return:
     """
-    file = open("response.txt", "w")
     status = True
     for line in sys.stdin:
         # remove leading and trailing whitespace
@@ -21,8 +20,6 @@ def main():
         else:
             # print values to stdout
             print(f"0{line}\t{ideal_len}")
-            file.write(f"0{line}\t{ideal_len}\n")
-    file.close()
 
 
 if __name__ == "__main__":
