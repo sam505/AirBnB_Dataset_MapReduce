@@ -16,7 +16,7 @@ def main():
         # parse the input we got from mapper.py
         try:
             values, ideal_count = line.split('\t')
-            if len(list(values)) < int(ideal_count):
+            if len(values.split(",")) < int(ideal_count):
                 lines += 1
         except ValueError:
             pass
